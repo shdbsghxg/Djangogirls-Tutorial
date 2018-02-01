@@ -19,3 +19,7 @@ def post_list(request):
 
     # return 'blog/post_list.html' template file as HTTP protocol
     return render(request, 'blog/post_list.html')
+
+def post_detail(request):
+
+    return render(request, 'blog/post_detail.html')
