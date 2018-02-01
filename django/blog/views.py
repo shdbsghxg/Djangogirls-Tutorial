@@ -30,9 +30,12 @@ def post_list(request):
         template_name='blog/post_list.html',
         context=context,
     )
-    # same as the upper
-    return render(request, 'blog/post_list.html', context)
+    # the lower is same as the upper
+    # return render(request, 'blog/post_list.html', context)
 
 
-def post_detail(request):
-    return render(request, 'blog/post_detail.html')
+def post_detail(request, pk):
+    context = {
+        'post': Post.objects.get(pk=pk),
+    }
+    return render(request, 'blog/post_detail.html', context)
