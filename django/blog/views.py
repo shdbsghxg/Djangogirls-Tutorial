@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Post
 
 
 def post_list(request):
@@ -17,9 +18,21 @@ def post_list(request):
     # return text-data response as HTTP protocol
     # return HttpResponse('<html><body><h1>post list</h1><p>Post list will be here</p></body></html>')
 
+    posts = Post.objects.all()
+    context = {
+        'posts': posts,
+    }
+
+
     # return 'blog/post_list.html' template file as HTTP protocol
-    return render(request, 'blog/post_list.html')
+    return render(
+        request=request,
+        template_name='blog/post_list.html',
+        context=context,
+    )
+    # same as the upper
+    return render(request, 'blog/post_list.html', context)
+
 
 def post_detail(request):
-
     return render(request, 'blog/post_detail.html')
