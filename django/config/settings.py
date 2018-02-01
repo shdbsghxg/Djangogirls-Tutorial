@@ -15,7 +15,21 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # 'django' folder
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# 'django/templates' folder
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+# 'django/static' folder
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+# directory for django to search static files
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+# if requests start w/ '/static/',
+#   -> from directory defined in STATICFILES_DIRS
+#   -> search for file in <path> ('/static/<path>'), and return it
+STATIC_URL = '/static/'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -122,7 +136,3 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
