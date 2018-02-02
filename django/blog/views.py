@@ -38,3 +38,9 @@ def post_detail(request, pk):
         'post': Post.objects.get(pk=pk),
     }
     return render(request, 'blog/post_detail.html', context,)
+
+
+def post_add(requenst):
+    ## view for localhost:8000/add
+    # return HttpResponse('Post add page')
+    return render(requenst, 'blog/post_add.html')
